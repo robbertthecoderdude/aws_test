@@ -12,10 +12,10 @@ const testModel = Model.create({
 
 async function init() {
     const connection = await Connection.mysqlConnection({
-        host: process.env.HOST,
-        username: process.env.USERNAME,
-        password: process.env.PASS,
-        database: process.env.DB,
+        host: process.env.RDS_HOSTNAME,
+        username: process.env.RDS_USERNAME,
+        password: process.env.RDS_PASSWORD,
+        database: process.env.RDS_DB_NAME,
     });
 
     Connection.setDefaultConnection(connection);
