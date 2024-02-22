@@ -4,6 +4,7 @@ const express = require("express");
 const { init, testModel } = require("./db");
 
 const PORT = process.env.PORT || 80;
+const IP = process.env.IP || "127.0.0.1";
 
 const app = express();
 app.use(express.json());
@@ -23,7 +24,7 @@ app.post("/", async (req, res) => {
 });
 
 init().then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, IP, () => {
         console.log("App is up on ", PORT);
     });
 });
